@@ -1,0 +1,36 @@
+{
+  "name": "ESLint + TypeScript + React",
+  "version": "1.0.0",
+  "files": [
+    "dist/lib/*"
+  ],
+  "main": "dist/lib/index.js",
+  "module": "dist/lib/index.esm.js",
+  "scripts": {
+    "lint:fix": "eslint --fix --ext .ts,.tsx src"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "src/**/*.ts?(x)": [
+      "prettier --parse=typescript --write",
+      "eslint --fix"
+    ],
+    "src/**/*.{js,jsx,css,scss,md,json}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.43.0",
+    "@typescript-eslint/parser": "^5.43.0",
+    "eslint": "^8.28.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.31.11",
+    "eslint-plugin-typescript": "^0.14.0",
+    "prettier": "^2.7.1",
+    "typescript": "^4.9.3"
+  }
+}
